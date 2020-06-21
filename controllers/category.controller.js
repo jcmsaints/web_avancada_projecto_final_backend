@@ -13,8 +13,6 @@ router.route("/").get(async (req, res) => {
     const count = await Category.countDocuments({
       email: { $in: req.query.email },
     });
-
-    // return response with posts, total pages, and current page
     res.json({
       data: categories,
       totalPages: Math.ceil(count / limit),
